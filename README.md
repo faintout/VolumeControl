@@ -1,11 +1,8 @@
-[ENGLISH](./README_EN.md)
+[ENGLISH](./README.md)
 
 <h1 align="center">VolumeControl</h1>
 
-<p align="center">
-    <a href="https://github.com/jiaming743/audioFft/blob/master/LICENSE"><img src="https://img.shields.io/github/license/jiaming743/audioFft.svg" alt="LICENSE" /> </a>
-    <a href="https://www.npmjs.com/package/@jiaminghi/audio-fft"><img src="https://img.shields.io/npm/v/@jiaminghi/audio-fft.svg" alt="LICENSE" /> </a>
-</p>
+
 ### 基于JS开发的可对音量进度条的拖动（支持手机端）、点击设置音量的插件
 
 - 传入标签ID及设置音量的回调方法来获取设置后的音量值。
@@ -37,6 +34,10 @@
 </script>
 ```
 
-![](Demo\image.png)
+<h3 align="center">示例</h3>
+
+<p align="center">
+    <img src="./Demo/image.png" />
+</p>
 
 Demo演示效果请移步Demo文件夹
