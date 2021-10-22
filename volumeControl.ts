@@ -136,7 +136,7 @@ class VolumeControl{
         this.mask.style.width = this.boxWidth/100*value+'px' 
     }
     //设置音量柱的颜色
-    setVolumeColor = function (boolean) {
+    setVolumeColor(boolean) {
         //false 则设置灰色
         this.mask.style.backgroundColor = boolean ? '#037c57' : '#05FAAF'
     };

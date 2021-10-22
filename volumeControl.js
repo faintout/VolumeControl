@@ -7,11 +7,6 @@
 exports.__esModule = true;
 var VolumeControl = /** @class */ (function () {
     function VolumeControl(scrollBarId, setVolumeCb) {
-        //设置音量柱的颜色
-        this.setVolumeColor = function (boolean) {
-            //false 则设置灰色
-            this.mask.style.backgroundColor = boolean ? '#037c57' : '#05FAAF';
-        };
         //滑动控件整体的ID 里包括bar(滑动控件的标签)，mask(进度条控件)
         this.scrollBarId = scrollBarId;
         //bar对象
@@ -131,6 +126,12 @@ var VolumeControl = /** @class */ (function () {
         this.bar.style.left = this.boxWidth / 100 * value + 'px';
         this.mask.style.width = this.boxWidth / 100 * value + 'px';
     };
+    //设置音量柱的颜色
+    VolumeControl.prototype.setVolumeColor = function (boolean) {
+        //false 则设置灰色
+        this.mask.style.backgroundColor = boolean ? '#037c57' : '#05FAAF';
+    };
+    ;
     return VolumeControl;
 }());
 exports["default"] = VolumeControl;
