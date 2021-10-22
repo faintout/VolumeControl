@@ -53,11 +53,55 @@ class VolumeControl{
                 //计算点击后的百分比
                 let VolumeCountVal = parseInt(<any>(parseInt(scrollBarOffsetX)/(boxWidth+bar.offsetWidth/2)*100))
                 //点击离开事件
+                VolumeCountVal > 0 && self.setVolumeColor(false)
                 //抛出音量值
                 self.setVolumeCb(VolumeCountVal)
              }
         }
-        //滑动选择
+        //滑动选择 -touch模式
+        // bar.onmousedown = function (event) {
+        //     event.stopPropagation()
+        //     event.preventDefault()
+        //     return
+        // }
+        // bar.addEventListener('touchstart', function (e) {
+        //     var ev = e || window.event;
+        //     var touch = ev.targetTouches[0];
+        //     console.log(ev,touch);
+        //     // oL = touch.clientX - bar.offsetLeft;
+        //     // oT = touch.clientY - bar.offsetTop;
+        //     bar.addEventListener('touchmove', defaultEvent, false)
+
+        // });
+        // //阻止默认事件
+        // function defaultEvent(e) {
+        //     e.preventDefault();
+        // }
+        // bar.addEventListener('touchmove', function (e) {
+        //     var touch = e.targetTouches[0];
+        //     bar.style.left =(touch.clientX-15) + 'px';
+        //     var documentEvent = event || window.event;
+        //     that.style.left = documentEvent.clientX - leftVal + 'px';
+        //     var val = parseInt(that.style.left); // 上面初始化过，所以这里可以直接操作行内样式
+        //     if (val < 0) {
+        //         that.style.left = 0;
+        //     }
+        //     else if (val > (boxWidth + self.bar.offsetWidth / 2)) {
+        //         that.style.left = (boxWidth + self.bar.offsetWidth / 2) + 'px';
+        //     }
+        //     mask.style.width = that.style.left; //遮盖盒子的宽度
+        // });
+        // bar.addEventListener('touchend', function () {
+            // let barStyleLeft = parseInt(bar.style.left)+''==='NaN'?scrollBar.offsetWidth/2:parseInt(bar.style.left)
+        //     var VolumeCountVal = parseInt((barStyleLeft / (boxWidth + bar.offsetWidth / 2) * 100));
+        //     //滑动离开事件
+        //     //抛出音量值
+        //     VolumeCountVal > 0 && self.setVolumeColor(false)
+        //     self.setVolumeCb(VolumeCountVal);
+        //     document.removeEventListener("touchmove", defaultEvent);
+        // });
+
+        //滑动选择-鼠标模式
         bar.onmousedown = function (event) {
             event.stopPropagation();
             var event = event || window.event;
@@ -78,6 +122,7 @@ class VolumeControl{
             document.onmouseup = function () {
                 let VolumeCountVal  = parseInt(<any>(parseInt(that.style.left)/(boxWidth+bar.offsetWidth/2)*100))
                 //滑动离开事件
+                VolumeCountVal>0&&self.setVolumeColor(false)
                 //抛出音量值
                 self.setVolumeCb(VolumeCountVal)
                 document.onmousemove = null;
@@ -90,5 +135,10 @@ class VolumeControl{
         this.bar.style.left =  this.boxWidth/100*value+'px'
         this.mask.style.width = this.boxWidth/100*value+'px' 
     }
+    //设置音量柱的颜色
+    setVolumeColor = function (boolean) {
+        //false 则设置灰色
+        this.mask.style.backgroundColor = boolean ? '#037c57' : '#05FAAF'
+    };
 }
 export default VolumeControl

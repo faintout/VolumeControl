@@ -1,10 +1,10 @@
-"use strict";
+// "use strict";
 // 使用方法
 // let volumeControl = new volumeControl(scrollBarId,"getVoumeVal")
 // getVoumeVal 这个函数可监听插件 拖动及点击动作完成后 的数值进行业务处理.
 // 注意：new的时候需保证dom节点加载完成，vue可在$nextTick方法中使用new方法。
 // setVolumeVal(50) 向控制插件设置音量值（0-100）
-exports.__esModule = true;
+// exports.__esModule = true;
 var VolumeControl = /** @class */ (function () {
     function VolumeControl(scrollBarId, setVolumeCb) {
         //设置音量柱的颜色
@@ -133,4 +133,4 @@ var VolumeControl = /** @class */ (function () {
     };
     return VolumeControl;
 }());
-exports["default"] = VolumeControl;
+// exports["default"] = VolumeControl;

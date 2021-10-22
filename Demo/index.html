@@ -1,0 +1,64 @@
+<body>
+    <span class="volume_bar">
+        <div id="scrollBar" class="scrollBar">
+            <div class="bar"></div>
+            <div class="mask"></div>
+        </div>
+    </span>
+</body>
+<style>
+    body{
+        background-color: #000;
+    }
+    .volume_bar {
+        display: inline-block;
+        width: 800px;
+        position: relative;
+        height: 100%;
+        margin: 0 .5rem;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    .mask {
+        width: 50%;
+        height: 100%;
+        background-color: #05FAAF;
+        border-radius: 10px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .volume_bar .bar {
+        background-color: #05FAAF;
+        width: 50px;
+        height: 50px;
+        background: #05FAAF;
+        border: 5px solid #ECFFF9;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        box-sizing: border-box;
+        z-index: 1;
+    }
+    #scrollBar {
+        display: inline-block;
+        position: absolute;
+        height: 20px;
+        top: calc(50% - 2px);
+        border-radius: 10px;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.3);
+        cursor: pointer;
+    }
+</style>
+
+<script src="./volumeControl.js" ></script>
+<script>
+    function getVolumeVal(value){
+        console.log('组件设置的值：',value)
+    }
+    const volumeControl = new VolumeControl("scrollBar",getVolumeVal)
+</script>
